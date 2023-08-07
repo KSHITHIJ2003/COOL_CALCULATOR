@@ -1,0 +1,27 @@
+def main():
+    area = float(input("Enter the Area of building: "))
+    occupants = int(input("Enter the number of occupants: "))
+
+    while True:
+        tob = input("Enter the type of Building (Residential/Commercial): ").upper()
+        if tob == "RESIDENTIAL":
+            cl_load = 100 * occupants
+            break
+        elif tob == "COMMERCIAL":
+            cl_load = 150 * occupants
+            break
+        else:
+            print("Enter the correct Input")
+
+    out_temp = float(input("Enter the Outdoor Temperature: "))
+    in_temp = float(input("Enter the Indoor Temperature: "))
+
+    U = 30
+    Q_cond = U * area * (out_temp - in_temp)
+
+    SCL = Q_cond + cl_load
+
+    print("\nSensible Cooling Load is:", SCL)
+
+if __name__ == "__main__":
+    main()
